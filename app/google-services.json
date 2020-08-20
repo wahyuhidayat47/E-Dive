@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "512405273804",
+    "firebase_url": "https://e-dive.firebaseio.com",
+    "project_id": "e-dive",
+    "storage_bucket": "e-dive.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512405273804:android:d6c70be6f1e13434301669",
+        "android_client_info": {
+          "package_name": "com.example.e_dive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512405273804-sm9ppork5j1985hoci5mvld0c1dvd2br.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXNYdDL-J5qMaIwMd7Dv17pmeYxMQ7zek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512405273804-sm9ppork5j1985hoci5mvld0c1dvd2br.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
