@@ -175,7 +175,7 @@ public class EquipmentActv extends AppCompatActivity {
                         reference2.getRef().child("url_photo").setValue(url_photo);
                         reference2.getRef().child("ketentuan").setValue(desc);
 
-                        Intent gotosignup = new Intent(EquipmentActv.this, SuccessEquipmentActv.class);
+                        Intent gotosignup = new Intent(EquipmentActv.this, Info_PaymentActv.class);
                         startActivity(gotosignup);
                     }
 

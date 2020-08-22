@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Tiket_Adapter extends RecyclerView.Adapter<Tiket_Adapter.MyViewHolder> {
 
@@ -38,12 +40,17 @@ public class Tiket_Adapter extends RecyclerView.Adapter<Tiket_Adapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
+        // format currency indonesia
+        Locale localeID = new Locale("in", "ID");
+        final NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
 
         final String getUrl = my_tickets.get(position).getUrl_photo();
+        Integer nominal = Integer.valueOf(my_tickets.get(position).getTotal_harga());
 
         holder.xname_order.setText(my_tickets.get(position).getNama_order());
         holder.xjumlah_order.setText(my_tickets.get(position).getJumlah_order() + " Tikets");
-        holder.xtotal_harga.setText(my_tickets.get(position).getTotal_harga());
+        holder.xtotal_harga.setText(formatRupiah.format((double)nominal));
         Picasso.with(context).load(getUrl).into(holder.xphototicket);
 
         final String getNamaOrder = my_tickets.get(position).getId_ticket();

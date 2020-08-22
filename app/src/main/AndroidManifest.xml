@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InfoRefundActv"></activity>
+        <activity android:name=".Info_PaymentActv"></activity>
+        <activity android:name=".InfoRefundActv" />
         <activity android:name=".EditProfileActv" />
         <activity android:name=".TicketOrderDetailActv" />
         <activity android:name=".MyProfileActv" />

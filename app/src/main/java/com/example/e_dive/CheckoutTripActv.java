@@ -177,7 +177,7 @@ public class CheckoutTripActv extends AppCompatActivity {
                         reference2.getRef().child("ketentuan").setValue(desc.toString());
 
 
-                        Intent gotoCheckout = new Intent(CheckoutTripActv.this, Success_TripActv.class);
+                        Intent gotoCheckout = new Intent(CheckoutTripActv.this, Info_PaymentActv.class);
                         startActivity(gotoCheckout);
                     }
 
