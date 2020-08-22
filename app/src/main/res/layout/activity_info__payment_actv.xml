@@ -79,12 +79,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <com.codesgood.views.JustifiedTextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/mlight"
-                android:text="Pembayaran dapat dilakukan melalui\nbank BCA dan harap konfrimasi setalah melakukan pembayaran. Harga dan ketersediaan sewaktu-waktu dapat berubah."
+                android:text="Pembayaran dapat dilakukan melalui bank BNI dan harap konfrimasi setalah melakukan pembayaran. Harga dan ketersediaan sewaktu-waktu dapat berubah."
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -97,11 +97,11 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/mmedium"
-                android:text="Call center : +62 812-2210-5824 \nNama : Rafauli\nBCA : 555566080"
+                android:text="BNI 0973589269 Rafauli Dive Center \nNo. Telphone +62 21 2216-0500\nHandphone +62 812-2210-5824"
                 android:textColor="@color/orange"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -111,13 +111,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <com.codesgood.views.JustifiedTextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/mlight"
-                android:text="Pengajuan Refund diproses maksimal 14 hari\nkerja setelah pengajuan diterima atau ditentukan sesuai dengan kebijakan perusahaan"
-                android:textAlignment="center"
+                android:text="Pengajuan Refund diproses maksimal 14 hari kerja setelah pengajuan diterima atau ditentukan sesuai dengan kebijakan perusahaan"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 

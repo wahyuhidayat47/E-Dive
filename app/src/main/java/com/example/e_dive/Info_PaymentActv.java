@@ -23,6 +23,7 @@ public class Info_PaymentActv extends AppCompatActivity {
             public void onClick(View v) {
                 Intent gotoCheckout = new Intent(Info_PaymentActv.this, Success_TripActv.class);
                 startActivity(gotoCheckout);
+                finish();
             }
         });
     }

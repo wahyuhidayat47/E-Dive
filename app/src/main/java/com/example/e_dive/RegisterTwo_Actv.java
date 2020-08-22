@@ -115,6 +115,7 @@ public class RegisterTwo_Actv extends AppCompatActivity {
                                     reference.getRef().child("full_name").setValue(full_name.getText().toString());
                                         Intent successact = new Intent(RegisterTwo_Actv.this, Success_RegisterActv.class);
                                         startActivity(successact);
+                                        finish();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override

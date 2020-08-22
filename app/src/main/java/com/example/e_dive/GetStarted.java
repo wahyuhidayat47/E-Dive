@@ -16,7 +16,7 @@ public class GetStarted extends AppCompatActivity {
 
     Button btn_signin, btn_signup;
     Animation ttb,btt;
-    TextView title;
+    TextView title, about;
     LinearLayout layoutbtn;
 
     @Override
@@ -33,6 +33,7 @@ public class GetStarted extends AppCompatActivity {
         btn_signup = findViewById(R.id.btn_signup);
         title = findViewById(R.id.title);
         layoutbtn = findViewById(R.id.layoutbtn);
+        about = findViewById(R.id.about);
 
         btn_signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,10 +53,20 @@ public class GetStarted extends AppCompatActivity {
             }
         });
 
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gotosign =  new Intent(GetStarted.this, CompanyProfileActv.class);
+                startActivity(gotosign);
+                finish();
+            }
+        });
+
         //run animation
 
         title.startAnimation(ttb);
         layoutbtn.startAnimation(btt);
+        about.startAnimation(btt);
 
 
     }
