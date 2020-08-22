@@ -181,6 +181,7 @@
                 android:fontFamily="@font/mmedium"
                 android:inputType="number"
                 android:lines="1"
+                android:maxLength="12"
                 android:paddingLeft="12dp"
                 android:textColor="@color/darkButton"
                 android:textSize="20sp" />

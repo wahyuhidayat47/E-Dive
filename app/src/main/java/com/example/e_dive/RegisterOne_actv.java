@@ -59,68 +59,75 @@ public class RegisterOne_actv extends AppCompatActivity {
                 final String xusername = username.getText().toString();
                 final String xmail = mail.getText().toString();
                 final String xpass = password.getText().toString();
-                final String PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-                reference2 = FirebaseDatabase.getInstance().getReference().child("Users").child(xusername);
-                reference2.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            Toast.makeText(getApplicationContext(), "Username Already Exsist", Toast.LENGTH_SHORT).show();
-                            btn_next.setEnabled(true);
-                            btn_next.setText("NEXT");
-                        }else if (xusername.isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Fill Username", Toast.LENGTH_SHORT).show();
-                            btn_next.setEnabled(true);
-                            btn_next.setText("NEXT");
-                        } else if (xmail.isEmpty() || !xmail.matches(PATTERN)) {
-                            Toast.makeText(getApplicationContext(), "Fill Mail", Toast.LENGTH_SHORT).show();
-                            btn_next.setEnabled(true);
-                            btn_next.setText("NEXT");
-                        } else if (xpass.isEmpty()&& xpass.length() < 6) {
-                            Toast.makeText(getApplicationContext(), "Fill Password and minimum 6 character", Toast.LENGTH_SHORT).show();
-                            btn_next.setEnabled(true);
-                            btn_next.setText("NEXT");
-                        } else {
+                final String PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
 
-                            //menyimpan data ke local storage
-                            SharedPreferences sharedPreferences = getSharedPreferences(USERNAME_KEY, MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString(username_key, username.getText().toString());
-                            editor.apply();
+                if (xusername.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Username required", Toast.LENGTH_SHORT).show();
+                    btn_next.setEnabled(true);
+                    btn_next.setText("NEXT");
+                } else if (xmail.isEmpty() || !xmail.matches(PATTERN)) {
+                    Toast.makeText(getApplicationContext(), "Fill Mail", Toast.LENGTH_SHORT).show();
+                    btn_next.setEnabled(true);
+                    btn_next.setText("NEXT");
+                } else if (xpass.isEmpty() || password.length() < 6) {
+                    Toast.makeText(getApplicationContext(), "Password required and minimum 6 character", Toast.LENGTH_SHORT).show();
+                    btn_next.setEnabled(true);
+                    btn_next.setText("NEXT");
+                } else {
+                    reference2 = FirebaseDatabase.getInstance().getReference().child("Users").child(xusername);
+                    reference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()) {
+                                Toast.makeText(getApplicationContext(), "Username Already Exsist", Toast.LENGTH_SHORT).show();
+                                btn_next.setEnabled(true);
+                                btn_next.setText("NEXT");
+                            } else if (xusername.isEmpty()) {
+                                Toast.makeText(getApplicationContext(), "Fill Username", Toast.LENGTH_SHORT).show();
+                                btn_next.setEnabled(true);
+                                btn_next.setText("NEXT");
+                            } else {
 
-                            // simpan ke database
-                            reference = FirebaseDatabase.getInstance().getReference().child("Users").child(username.getText().toString());
-                            reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    snapshot.getRef().child("username").setValue(username.getText().toString());
-                                    snapshot.getRef().child("password").setValue(password.getText().toString());
-                                    snapshot.getRef().child("mail").setValue(mail.getText().toString());
-                                }
 
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
+                                //menyimpan data ke local storage
+                                SharedPreferences sharedPreferences = getSharedPreferences(USERNAME_KEY, MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString(username_key, username.getText().toString());
+                                editor.apply();
 
-                                }
-                            });
+                                // simpan ke database
+                                reference = FirebaseDatabase.getInstance().getReference().child("Users").child(username.getText().toString());
+                                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        snapshot.getRef().child("username").setValue(username.getText().toString());
+                                        snapshot.getRef().child("password").setValue(password.getText().toString());
+                                        snapshot.getRef().child("mail").setValue(mail.getText().toString());
+                                    }
 
-                            // berpindah activity
-                            Intent nextto = new Intent(RegisterOne_actv.this, RegisterTwo_Actv.class);
-                            startActivity(nextto);
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+                                // berpindah activity
+                                Intent nextto = new Intent(RegisterOne_actv.this, RegisterTwo_Actv.class);
+                                startActivity(nextto);
+
+                            }
 
                         }
 
-                    }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                        }
+                    });
 
 
+                }
             }
         });
 

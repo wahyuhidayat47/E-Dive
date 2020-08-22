@@ -8,6 +8,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -47,7 +48,7 @@ public class RegisterTwo_Actv extends AppCompatActivity {
     String username_key_new = "";
 
     DatabaseReference reference;
-    StorageReference storage;
+    StorageReference storage ,storageRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +94,7 @@ public class RegisterTwo_Actv extends AppCompatActivity {
                 // menyimpan data ke firebase
                 reference = FirebaseDatabase.getInstance().getReference().child("Users").child(username_key_new);
                 storage = FirebaseStorage.getInstance().getReference().child("PhotoUsers").child(username_key_new);
+                storageRef = FirebaseStorage.getInstance().getReference().child("PhotoUsers").child(username_key_new);
 
                 // validasi untuk file apakah ada
 
@@ -123,6 +125,10 @@ public class RegisterTwo_Actv extends AppCompatActivity {
                             }
                         }
                     });
+                }else{
+                    Toast.makeText(getApplicationContext(), "Insert Photo", Toast.LENGTH_SHORT).show();
+                    register.setEnabled(true);
+                    register.setText("NEXT");
                 }
 
             }

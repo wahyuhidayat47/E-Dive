@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class MyProfileActv extends AppCompatActivity {
 
     Button btn_edit_profile, btn_signout;
-    ImageView img_user, xphototicket;
+    ImageView img_user, xphototicket, backhome;
     TextView user_name, user_bio, xname_order, xjumlah_order, xtotal_harga;
     RecyclerView my_ticketplace;
 
@@ -55,6 +55,7 @@ public class MyProfileActv extends AppCompatActivity {
         xjumlah_order = findViewById(R.id.xjumlah_order);
         xtotal_harga = findViewById(R.id.xtotal_harga);
         my_ticketplace = findViewById(R.id.my_ticketplace);
+        backhome = findViewById(R.id.backhome);
 
         my_ticketplace.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<My_ticket>();
@@ -79,6 +80,13 @@ public class MyProfileActv extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent Goto = new Intent(MyProfileActv.this, EditProfileActv.class);
+                startActivity(Goto);
+            }
+        });
+        backhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Goto = new Intent(MyProfileActv.this, Home_Actv.class);
                 startActivity(Goto);
             }
         });

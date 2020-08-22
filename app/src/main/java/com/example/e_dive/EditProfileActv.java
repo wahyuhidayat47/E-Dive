@@ -39,7 +39,7 @@ public class EditProfileActv extends AppCompatActivity {
     ImageView img_user;
 
     DatabaseReference reference;
-    StorageReference storage;
+    StorageReference storage, storageReference;
     String USERNAME_KEY = "usernamekey";
     String username_key = "";
     String username_key_new = "";
@@ -68,6 +68,7 @@ public class EditProfileActv extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference()
                 .child("Users").child(username_key_new);
         storage = FirebaseStorage.getInstance().getReference().child("PhotoUsers").child(username_key_new);
+        storageReference = FirebaseStorage.getInstance().getReference().child("PhotoUsers").child(username_key_new);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -147,7 +148,13 @@ public class EditProfileActv extends AppCompatActivity {
                             }
                         }
                     });
+                }else {
+                    reference.getRef().child("url_photo_profile").setValue(img_user);
+                    //berpidah activity
+                    Intent gotohome = new Intent(EditProfileActv.this,MyProfileActv.class);
+                    startActivity(gotohome);
                 }
+
             }
         });
         btn_plus.setOnClickListener(new View.OnClickListener() {

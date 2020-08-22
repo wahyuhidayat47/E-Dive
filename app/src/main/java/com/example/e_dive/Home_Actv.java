@@ -21,9 +21,9 @@ import com.squareup.picasso.Picasso;
 public class Home_Actv extends AppCompatActivity {
 
     LinearLayout name_rajaampat, name_bcd , name_pramuka,name_tanjungbira, name_fins, name_regulator, name_tabung,
-            name_weightbelt, name_wetsuit, name_mask;
+            name_weightbelt, name_wetsuit, name_mask, my_ticket;
     TextView full_name,bio;
-    ImageView img_user;
+    ImageView img_user,log_out;
 
     String USERNAME_KEY = "usernamekey";
     String username_key = "";
@@ -51,6 +51,8 @@ public class Home_Actv extends AppCompatActivity {
         name_weightbelt = findViewById(R.id.name_weightbelt);
         name_wetsuit = findViewById(R.id.name_wetsuit);
         name_mask = findViewById(R.id.name_mask);
+        my_ticket = findViewById(R.id.my_ticket);
+        log_out = findViewById(R.id.log_out);
 
         reference = FirebaseDatabase.getInstance().getReference().child("Users").child(username_key_new);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -162,6 +164,26 @@ public class Home_Actv extends AppCompatActivity {
             }
         });
 
+        log_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // menghapus nilai dari  username local
+                SharedPreferences sharedPreferences = getSharedPreferences(USERNAME_KEY,MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(username_key, null);
+                editor.apply();
+                Intent logout =  new Intent(Home_Actv.this,SignIn_Actv.class);
+                startActivity(logout);
+                finish();
+            }
+        });
+        my_ticket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Goto = new Intent(Home_Actv.this, MyProfileActv.class);
+                startActivity(Goto);
+            }
+        });
     }
     public void getUsernameLocal(){
         SharedPreferences sharedPreferences = getSharedPreferences(USERNAME_KEY, MODE_PRIVATE);

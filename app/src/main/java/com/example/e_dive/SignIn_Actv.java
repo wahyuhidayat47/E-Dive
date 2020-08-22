@@ -64,9 +64,7 @@ public class SignIn_Actv extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Username required",Toast.LENGTH_SHORT).show();
                     btn_signin.setEnabled(true);
                     btn_signin.setText("SIGN IN");
-                }else {
-
-                    if (password.isEmpty()){
+                }else if (password.isEmpty()){
                         Toast.makeText(getApplicationContext(),"Password required",Toast.LENGTH_SHORT).show();
                         btn_signin.setEnabled(true);
                         btn_signin.setText("SIGN IN");
@@ -85,7 +83,7 @@ public class SignIn_Actv extends AppCompatActivity {
                                     if (password.equals(passwordFirebase)){
                                         SharedPreferences sharedPreferences = getSharedPreferences(USERNAME_KEY, MODE_PRIVATE);
                                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                                        editor.putString(username_key, username);
+                                        editor.putString(username_key, user_name.getText().toString());
                                         editor.apply();
 
                                         //berpindah activity
@@ -114,7 +112,7 @@ public class SignIn_Actv extends AppCompatActivity {
                     }
                 }
 
-            }
+
         });
 
 
