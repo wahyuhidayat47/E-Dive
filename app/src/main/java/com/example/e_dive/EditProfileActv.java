@@ -148,11 +148,6 @@ public class EditProfileActv extends AppCompatActivity {
                             }
                         }
                     });
-                }else {
-                    reference.getRef().child("url_photo_profile").setValue(img_user);
-                    //berpidah activity
-                    Intent gotohome = new Intent(EditProfileActv.this,MyProfileActv.class);
-                    startActivity(gotohome);
                 }
 
             }
