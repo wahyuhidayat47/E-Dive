@@ -69,11 +69,21 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/id_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/darkButton"
+                    android:textSize="14sp" />
+
+                <TextView
                     android:id="@+id/name_order"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="2dp"
                     android:fontFamily="@font/mmedium"
                     android:textColor="@color/darkButton"
                     android:textSize="18sp" />
@@ -83,33 +93,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="2dp"
                     android:fontFamily="@font/mlight"
                     android:textColor="@color/darkButton"
                     android:textSize="14sp" />
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
-
-
-                <TextView
-                    android:id="@+id/qty_tiket"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/mregular"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
-                    android:textColor="@color/orange"
-                    android:textSize="16sp" />
 
             </LinearLayout>
+
+
 
 
         </LinearLayout>

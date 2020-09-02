@@ -49,6 +49,7 @@ public class Tiket_Adapter extends RecyclerView.Adapter<Tiket_Adapter.MyViewHold
         Integer nominal = Integer.valueOf(my_tickets.get(position).getTotal_harga());
 
         holder.xname_order.setText(my_tickets.get(position).getNama_order());
+        holder.xid_tiket.setText(my_tickets.get(position).getId_ticket());
         holder.xjumlah_order.setText(my_tickets.get(position).getJumlah_order() + " Tikets");
         holder.xtotal_harga.setText(formatRupiah.format((double)nominal));
         Picasso.with(context).load(getUrl).into(holder.xphototicket);
@@ -72,7 +73,7 @@ public class Tiket_Adapter extends RecyclerView.Adapter<Tiket_Adapter.MyViewHold
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView xname_order, xjumlah_order, xtotal_harga;
+        TextView xname_order, xjumlah_order, xtotal_harga,xid_tiket;
         ImageView xphototicket;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -82,6 +83,7 @@ public class Tiket_Adapter extends RecyclerView.Adapter<Tiket_Adapter.MyViewHold
             xjumlah_order = itemView.findViewById(R.id.xjumlah_order);
             xtotal_harga = itemView.findViewById(R.id.xtotal_harga);
             xphototicket = itemView.findViewById(R.id.xphototicket);
+            xid_tiket = itemView.findViewById(R.id.xid_tiket);
 
         }
     }

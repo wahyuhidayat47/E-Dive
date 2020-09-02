@@ -24,7 +24,7 @@ import java.util.Locale;
 
 public class TicketOrderDetailActv extends AppCompatActivity {
 
-    TextView name_order, total_harga, desc_trip, qty_tiket;
+    TextView name_order, total_harga, desc_trip, id_order;
     ImageView photo_item;
     Button btn_refund;
     LinearLayout btn_back;
@@ -47,7 +47,7 @@ public class TicketOrderDetailActv extends AppCompatActivity {
         name_order = findViewById(R.id.name_order);
         total_harga = findViewById(R.id.total_harga);
         desc_trip = findViewById(R.id.desc_trip);
-        qty_tiket = findViewById(R.id.qty_ticket);
+        id_order = findViewById(R.id.id_order);
         photo_item = findViewById(R.id.photo_item);
         btn_back = findViewById(R.id.btn_back);
         btn_refund = findViewById(R.id.btn_refund);
@@ -66,7 +66,7 @@ public class TicketOrderDetailActv extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 name_order.setText(snapshot.child("nama_order").getValue().toString());
                 desc_trip.setText(snapshot.child("ketentuan").getValue().toString());
-                //qty_tiket.setText(snapshot.child("jumlah_order").getValue()+ " Tikets");
+                id_order.setText(snapshot.child("id_ticket").getValue().toString());
                 valuetotalharga = Integer.valueOf(snapshot.child("total_harga").getValue().toString());
                 total_harga.setText(formatRupiah.format((double)valuetotalharga));
                 Picasso.with(TicketOrderDetailActv.this).load(snapshot.child("url_photo")

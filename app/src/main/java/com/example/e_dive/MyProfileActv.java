@@ -26,7 +26,7 @@ public class MyProfileActv extends AppCompatActivity {
 
     Button btn_edit_profile, btn_signout;
     ImageView img_user, xphototicket, backhome;
-    TextView user_name, user_bio, xname_order, xjumlah_order, xtotal_harga;
+    TextView user_name, user_bio, xname_order, xjumlah_order, xtotal_harga, xid_tiket;
     RecyclerView my_ticketplace;
 
     String USERNAME_KEY = "usernamekey";
@@ -56,6 +56,7 @@ public class MyProfileActv extends AppCompatActivity {
         xtotal_harga = findViewById(R.id.xtotal_harga);
         my_ticketplace = findViewById(R.id.my_ticketplace);
         backhome = findViewById(R.id.backhome);
+        xid_tiket = findViewById(R.id.xid_tiket);
 
         my_ticketplace.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<My_ticket>();

@@ -113,6 +113,8 @@ public class EditProfileActv extends AppCompatActivity {
                         dataSnapshot.getRef().child("mail").setValue(xmail.getText().toString());
                         dataSnapshot.getRef().child("password").setValue(xpassword.getText().toString());
                         dataSnapshot.getRef().child("phone_number").setValue(xphone.getText().toString());
+                        Intent gotohome = new Intent(EditProfileActv.this,MyProfileActv.class);
+                        startActivity(gotohome);
                     }
 
                     @Override
